@@ -1,0 +1,58 @@
+html {
+	scroll-behavior: smooth;
+}
+
+.title-header,
+.title-section {
+	text-align: center;
+}
+
+.title-header {
+	padding: 5%;
+	background-color: rgb(247, 209, 83);
+}
+
+.title-section {
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 30%;
+	border-top: 1px solid gray;
+}
+
+.asideSection {
+	display: block;
+	flex-direction: column;
+	text-align: center;
+	visibility: hidden;
+	position: fixed;
+	top: 5%;
+	left: 85%;
+	background-color: rgb(44, 53, 60);
+	border-radius: 5%;
+	width: 10vh;
+}
+
+.asideSection div {
+	padding: 8%;
+}
+
+.asideSection div:hover {
+	background-color: rgb(83, 140, 239);
+	color: black;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+a:hover {
+	color: black;
+}
+
+#btnBurger {
+	position: fixed;
+	top: 0%;
+	left: 93%;
+}

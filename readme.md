@@ -8,7 +8,7 @@
 
 2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
 ---
-
+ 
 
 
 3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
@@ -151,6 +151,10 @@ La clase recibirá un objeto al momento de instanciarse con los siguentes datos:
 * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
 
 
+
+``` Ejercicios Practicos manejo del DOM - JavaScript ```
+
+1) Menu Hamburguesa
 
 
 
