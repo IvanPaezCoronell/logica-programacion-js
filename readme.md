@@ -154,7 +154,11 @@ La clase recibirá un objeto al momento de instanciarse con los siguentes datos:
 
 ``` Ejercicios Practicos manejo del DOM - JavaScript ```
 
-1) Menu Hamburguesa
+1) Menu Hamburguesa.
+---
+
+
+2) Reloj Digital y Alarma Sonora
 
 
 
