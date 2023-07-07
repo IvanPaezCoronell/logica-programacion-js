@@ -22,6 +22,11 @@ const $cont = document.querySelector('#contador');
 // Variables boton scrollTop
 const $btnScroll = document.querySelector('#idBtnScroll');
 
+// Variables boton darkMode
+const $btnDarkMode = document.querySelector('#idDarkMode');
+const $body = document.body;
+const $emojiBtn = document.querySelector('#spanEmoji');
+
 // TODO: Menu Hamburguesa
 $menuBurger.addEventListener('click', e => {
 	console.log('Click en menu burger');
@@ -180,7 +185,6 @@ contador();
 // TODO: Boton ScrollTop
 
 window.onscroll = () => {
-	console.log(window.scrollY);
 	if (window.scrollY > 300) {
 		$btnScroll.style.setProperty('visibility', 'visible');
 	} else if (window.scrollY < 300) {
@@ -195,3 +199,25 @@ const scrollTop = () => {
 };
 
 scrollTop();
+
+// TODO: boton darkMode
+
+const darkMode = () => {
+	$btnDarkMode.addEventListener('click', e => {
+		const containsClass = $body.classList.contains('darkMode');
+		let moon = '🌓';
+		let soon = '☀️';
+
+		if (containsClass === false) {
+			$emojiBtn.innerHTML = soon;
+			$body.classList.add('darkMode');
+			$rectangulo.style.setProperty('background-color', 'rgb(71, 67, 86)');
+		} else if (containsClass === true)
+				$emojiBtn.innerHTML = moon, 
+				$body.classList.remove('darkMode'), 
+				$rectangulo.style.setProperty('background-color', 'black');
+				
+	});
+};
+
+darkMode();
