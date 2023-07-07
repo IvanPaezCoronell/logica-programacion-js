@@ -1,9 +1,48 @@
+:root {
+	--main-font: sans-serif;
+	--font-size: 16px;
+	--main-color: #f7df1e;
+	--second-color: #222;
+	--main-modal-color: rgba(247, 222, 30, 0.85);
+	--second-modal-color: rgba(34, 34, 34, 0.85);
+	--container-width: 1200px;
+}
+
 html {
+	box-sizing: border-box;
+	font-family: var(--main-font);
+	font-size: var(--font-size);
 	scroll-behavior: smooth;
 }
 
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
 body {
-  margin: 0;
+	margin: 0;
+	overflow-x: hidden;
+}
+
+img,
+video {
+	max-width: 100%;
+	height: auto;
+}
+
+
+
+.section {
+	padding: 2rem;
+	padding-top: 4rem;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	max-width: var(--container-width);
+	min-height: 100vh;
+	text-align: center;
 }
 
 .title-header,
@@ -17,10 +56,6 @@ body {
 }
 
 .title-section {
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	padding: 30%;
 	border-top: 1px solid gray;
 }
 
@@ -35,7 +70,7 @@ body {
 	background-color: rgb(44, 53, 60);
 	border-radius: 5%;
 	width: 10vh;
-  transition: transform 0.3s ease, opacity 0.5s ease;
+	transition: transform 0.3s ease, opacity 0.5s ease;
 }
 
 .asideSection div {
@@ -63,10 +98,23 @@ a:hover {
 }
 
 .idRelojVisible {
-  visibility: visible;
+	visibility: visible;
 }
 
 .idRelojHidden {
-  visibility: hidden;
+	visibility: hidden;
 }
 
+.rrectangulo {
+	display: flex;
+	min-height: 50vh;
+	background-color: var(--second-color);
+}
+
+.circulo {
+	margin: auto;
+	width: 4rem;
+	height: 4rem;
+	border-radius: 50%;
+	background-color: var(--main-color);
+}

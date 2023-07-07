@@ -12,6 +12,10 @@ const $btnAlarma = document.querySelector('#btnAlarma');
 const $btnDetenerAlarma = document.querySelector('#btnDetenerAlarma');
 const $audio = document.querySelector('#idAudio');
 
+// Variables eventos con el teclado
+const $rectangulo = document.querySelector('#rectangulo');
+const $circulo = document.querySelector('#circulo');
+
 // TODO: Menu Hamburguesa
 $menuBurger.addEventListener('click', e => {
 	console.log('Click en menu burger');
@@ -69,3 +73,67 @@ const alarma = () => {
 	});
 };
 alarma();
+
+// TODO: Eventos con el teclado - mover un div con el teclado y agregar shorcut para generar alerta
+
+const shorcuts = () => {
+	document.addEventListener('keyup', e => {
+		if (e.key === 'a' && e.ctrlKey) {
+			alert('Alerta creada con un shorcut');
+		} else if (e.key === 'c' && e.ctrlKey) {
+			confirm('Confirmacion creada con un shorcut');
+		} else if (e.key === 'm' && e.ctrlKey) {
+			prompt('Propm creado con un shorcut');
+		}
+	});
+};
+shorcuts();
+
+const moverCirculo = () => {
+	let x = 0;
+	let y = 0;
+
+	document.addEventListener('keydown', e => {
+		const limiteRectangulo = $rectangulo.getBoundingClientRect();
+		const limiteCirculo = $circulo.getBoundingClientRect();
+
+		switch (e.keyCode) {
+			case 37:
+				if (limiteCirculo.left > limiteRectangulo.left) {
+					x--;
+					e.preventDefault();
+				}
+
+				break;
+
+			case 38:
+				if (limiteCirculo.top > limiteRectangulo.top) {
+					y--;
+					e.preventDefault();
+				}
+
+				break;
+
+			case 39:
+				if (limiteCirculo.right < limiteRectangulo.right) {
+					x++;
+					e.preventDefault();
+				}
+				break;
+
+			case 40:
+				if (limiteCirculo.bottom < limiteRectangulo.bottom) {
+					y++;
+					e.preventDefault();
+				}
+				break;
+
+			default:
+				break;
+		}
+
+		$circulo.style.transform = `translate(${x * 10}px, ${y * 10}px)`;
+	});
+};
+
+moverCirculo();
