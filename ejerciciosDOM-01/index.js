@@ -19,6 +19,8 @@ const $circulo = document.querySelector('#circulo');
 // Variables contador
 const $cont = document.querySelector('#contador');
 
+// Variables boton scrollTop
+const $btnScroll = document.querySelector('#idBtnScroll');
 
 // TODO: Menu Hamburguesa
 $menuBurger.addEventListener('click', e => {
@@ -174,3 +176,22 @@ const contador = () => {
 };
 
 contador();
+
+// TODO: Boton ScrollTop
+
+window.onscroll = () => {
+	console.log(window.scrollY);
+	if (window.scrollY > 300) {
+		$btnScroll.style.setProperty('visibility', 'visible');
+	} else if (window.scrollY < 300) {
+		$btnScroll.style.setProperty('visibility', 'hidden');
+	}
+};
+
+const scrollTop = () => {
+	$btnScroll.addEventListener('click', e => {
+		window.scrollTo(0, document.body.scrollTop);
+	});
+};
+
+scrollTop();
