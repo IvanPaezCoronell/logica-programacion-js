@@ -66,10 +66,10 @@ video {
 	visibility: hidden;
 	position: fixed;
 	top: 5%;
-	left: 85%;
+	left: 75%;
 	background-color: rgb(44, 53, 60);
 	border-radius: 5%;
-	width: 10vh;
+	width: 20vh;
 	transition: transform 0.3s ease, opacity 0.5s ease;
 }
 

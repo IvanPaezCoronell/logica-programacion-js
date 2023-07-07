@@ -16,6 +16,10 @@ const $audio = document.querySelector('#idAudio');
 const $rectangulo = document.querySelector('#rectangulo');
 const $circulo = document.querySelector('#circulo');
 
+// Variables contador
+const $cont = document.querySelector('#contador');
+
+
 // TODO: Menu Hamburguesa
 $menuBurger.addEventListener('click', e => {
 	console.log('Click en menu burger');
@@ -137,3 +141,36 @@ const moverCirculo = () => {
 };
 
 moverCirculo();
+
+// TODO: Contador
+const contador = () => {
+	document.addEventListener('DOMContentLoaded', e => {
+		let fechaFinal = new Date('Dec 31, 2023 23:59:59');
+		let fechaHoy = new Date(fechaFinal).getTime();
+		let mensaje = 'Feliz Anio Nuevo 2024 🎆';
+
+		let setFecha = setInterval(() => {
+			let hoy = new Date().getTime();
+			let limiteTiempo = fechaHoy - hoy;
+
+			let dias = Math.floor(limiteTiempo / (1000 * 60 * 60 * 24));
+			let horas = ('0' +
+				Math.floor(
+					limiteTiempo % (1000 * 60 * 60 * 24) / (1000 * 60 * 60),
+				)).slice(-2);
+			let minutos = ('0' +
+				Math.floor(limiteTiempo % (1000 * 60 * 60) / (1000 * 60))).slice(-2);
+			let segundos = ('0' +
+				Math.floor(limiteTiempo % (1000 * 60) / 1000)).slice(-2);
+
+			$cont.innerHTML = `Faltan: ${dias} Dias - ${horas} Horas - ${minutos} minutos - ${segundos} segundos`;
+
+			if (limiteTiempo < 0) {
+				clearInterval(setFecha);
+				$cont.innerHTML = mensaje;
+			}
+		}, 1000);
+	});
+};
+
+contador();
