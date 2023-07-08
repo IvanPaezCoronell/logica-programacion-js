@@ -158,21 +158,23 @@ La clase recibirá un objeto al momento de instanciarse con los siguentes datos:
 ---
 
 
-2) Reloj Digital y Alarma Sonora
+2) Reloj Digital y Alarma Sonora.
 ---
 
 
-3) Eventos con el teclado - mover un div con el teclado y agregar shorcut para generar alerta
+3) Eventos con el teclado - mover un div con el teclado y agregar shorcut para generar alerta.
+---
 
 
+4) Boton scrollTop.
+---
 
 
+5) Boton darkMode.
+---
 
 
-
-
-
-
-
+6) Guardar tema (darkMode) en localStorage.
+---
 
 

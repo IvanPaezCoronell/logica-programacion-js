@@ -203,20 +203,36 @@ scrollTop();
 // TODO: boton darkMode
 
 const darkMode = () => {
-	$btnDarkMode.addEventListener('click', e => {
-		const containsClass = $body.classList.contains('darkMode');
-		let moon = '🌓';
-		let soon = '☀️';
+	let moon = '🌓';
+	let soon = '☀️';
+	let darkMode = localStorage.getItem('dark-mode');
 
-		if (containsClass === false) {
-			$emojiBtn.innerHTML = soon;
-			$body.classList.add('darkMode');
-			$rectangulo.style.setProperty('background-color', 'rgb(71, 67, 86)');
-		} else if (containsClass === true)
-				$emojiBtn.innerHTML = moon, 
-				$body.classList.remove('darkMode'), 
-				$rectangulo.style.setProperty('background-color', 'black');
-				
+	const activarDarkMode = () => {
+		$emojiBtn.innerHTML = soon;
+		$body.classList.add('darkMode');
+		$rectangulo.style.setProperty('background-color', 'rgb(71, 67, 86)');
+		localStorage.setItem('dark-mode', 'enabled');
+	};
+
+	const desactivarDarkMode = () => {
+		$emojiBtn.innerHTML = moon;
+		$body.classList.remove('darkMode');
+		$rectangulo.style.setProperty('background-color', 'black');
+		localStorage.setItem('dark-mode', 'disabled');
+	};
+
+	if (darkMode === 'enabled') {
+		activarDarkMode();
+	}
+
+	$btnDarkMode.addEventListener('click', e => {
+		darkMode = localStorage.getItem('dark-mode');
+
+		if (darkMode === 'disabled') {
+			activarDarkMode();
+		} else {
+			desactivarDarkMode();
+		}
 	});
 };
 
