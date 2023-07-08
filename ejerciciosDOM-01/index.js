@@ -27,6 +27,11 @@ const $btnDarkMode = document.querySelector('#idDarkMode');
 const $body = document.body;
 const $emojiBtn = document.querySelector('#spanEmoji');
 
+// Variables Responsive Design
+const $divSectionCuatro = document.querySelector('#divSection04');
+const $spanVideo = document.querySelector('#spanVideo');
+const $spanImg = document.querySelector('#spanImg');
+
 // TODO: Menu Hamburguesa
 $menuBurger.addEventListener('click', e => {
 	console.log('Click en menu burger');
@@ -237,3 +242,23 @@ const darkMode = () => {
 };
 
 darkMode();
+
+// TODO: Responsive Design con JavaScript
+
+const responsiveDesgin = () => {
+	let maxWidth = window.matchMedia('(max-width: 700px)');
+
+	const responsive = e => {
+		if (maxWidth.matches === true) {
+			$spanVideo.innerHTML = `<a href='https://www.youtube.com/watch?v=odnLWsAe3lM&t=8s' class='linkSectionCuatro'>Video: JavaScript en 2 minutos ➡️</a>`;
+			$spanImg.innerHTML = `<a href='https://goo.gl/maps/hyphRPNUXNXi4U9p9' class='linkSectionCuatro'>Mapa: Ver mapa en Google Maps ➡️</a>`;
+		} else {
+			$spanImg.innerHTML = `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15665.29748245331!2d-74.83800730631775!3d11.014271627109553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42c4d31832a7f%3A0xacfa59f8b5bbd98b!2sCl.%2099%2C%20Riomar%2C%20Barranquilla%2C%20Atl%C3%A1ntico!5e0!3m2!1ses!2sco!4v1688835092307!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`;
+			$spanVideo.innerHTML = `<video src='./assets/jsVideo.mp4' controls></video>`;
+		}
+	};
+
+	maxWidth.addListener(responsive);
+	responsive(maxWidth);
+};
+responsiveDesgin();

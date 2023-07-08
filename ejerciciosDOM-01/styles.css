@@ -68,8 +68,8 @@ video {
 	text-align: center;
 	visibility: hidden;
 	position: fixed;
-	top: 68%;
-	left: 80%;
+	top: 55%;
+	left: 75%;
 	background-color: rgb(44, 53, 60);
 	border-radius: 5%;
 	width: 20vh;
@@ -165,4 +165,19 @@ a:hover {
 	outline: 0;
 	border: 0;
 	transition: all 0.3s ease-out;
+}
+
+.sec04 {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.linkSectionCuatro {
+	color: rgb(55, 0, 255);
+	text-decoration: solid;
+}
+
+.linkSectionCuatro:hover {
+	color: #ffe100;
 }
