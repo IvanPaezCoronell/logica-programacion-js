@@ -181,3 +181,30 @@ a:hover {
 .linkSectionCuatro:hover {
 	color: #ffe100;
 }
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	text-align: center;
+	align-items: center;
+}
+
+form input {
+	width: 250px;
+}
+
+#btnSubmit {
+	cursor: pointer;
+	background-color: #f7df1e;
+	border: #b8b7ad 1px solid;
+}
+
+#btnSubmit:hover {
+	background-color: #f7de1e99;
+}
+
+#btnCerrar {
+	cursor: pointer;
+	background-color: #f7341e;
+	
+}

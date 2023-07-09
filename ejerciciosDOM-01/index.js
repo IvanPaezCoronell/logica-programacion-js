@@ -32,6 +32,10 @@ const $divSectionCuatro = document.querySelector('#divSection04');
 const $spanVideo = document.querySelector('#spanVideo');
 const $spanImg = document.querySelector('#spanImg');
 
+// Variables Responsive Tester
+const $form = document.getElementById('form');
+const $inputUrl = document.querySelector('#inputUrl').value;
+
 // TODO: Menu Hamburguesa
 $menuBurger.addEventListener('click', e => {
 	console.log('Click en menu burger');
@@ -262,3 +266,26 @@ const responsiveDesgin = () => {
 	responsive(maxWidth);
 };
 responsiveDesgin();
+
+// TODO: Responsive Tester
+let tester;
+
+const abrirUrl = () => {
+	document.addEventListener('submit', e => {
+		e.preventDefault();
+		if (e.target === $form) {
+			e.preventDefault();
+			tester = window.open(
+				$form.url.value,
+				'tester',
+				`innerWidth=${$form.ancho.value}, innerHeight=${$form.alto.value}`,
+			);
+		}
+	});
+
+	document.addEventListener('click', e => {
+		if (e.target === $form.cerrar) {
+			tester.close();
+		}
+	});
+};
