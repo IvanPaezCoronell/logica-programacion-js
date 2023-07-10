@@ -68,12 +68,18 @@ video {
 	text-align: center;
 	visibility: hidden;
 	position: fixed;
-	top: 55%;
-	left: 75%;
+	top: 0%;
+	left: 0%;
 	background-color: rgb(44, 53, 60);
-	border-radius: 5%;
-	width: 20vh;
+	width: 30vh;
+	height: 100vh;
+	overflow: auto;
 	transition: transform 0.3s ease, opacity 0.5s ease;
+	
+}
+
+::-webkit-scrollbar {
+	display: none;
 }
 
 .asideSection div {

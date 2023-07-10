@@ -194,3 +194,7 @@ La clase recibirá un objeto al momento de instanciarse con los siguentes datos:
 ---
 
 
+11) Detectar la Camar Web (webcam).
+---
+
+

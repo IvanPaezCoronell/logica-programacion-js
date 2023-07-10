@@ -40,7 +40,10 @@ const $inputUrl = document.querySelector('#inputUrl').value;
 const $userDevice = document.querySelector('#userDevice');
 
 // Variables Deteccion del estado de la red
-const $estadoRed = document.querySelector('#estadoRed')
+const $estadoRed = document.querySelector('#estadoRed');
+
+// Variables Deteccion de la webcam
+const $webcam = document.querySelector('#webcam');
 
 // TODO: Menu Hamburguesa
 $menuBurger.addEventListener('click', e => {
@@ -347,21 +350,42 @@ const detectarDispositivo = () => {
 };
 detectarDispositivo();
 
-
 // TODO: Detectar el estado de la conexion (Red)
 
 const detectarEstadoRed = () => {
 	setInterval(() => {
-		$estadoRed.innerHTML = `${navigator.onLine ? 'Online' : 'Offline'}`
+		$estadoRed.innerHTML = `${navigator.onLine ? 'Online' : 'Offline'}`;
 
-		if(navigator.onLine){
-			$estadoRed.classList.add('online')
-			$estadoRed.classList.remove('offline')
+		if (navigator.onLine) {
+			$estadoRed.classList.add('online');
+			$estadoRed.classList.remove('offline');
 		} else {
-			$estadoRed.classList.add('offline')
+			$estadoRed.classList.add('offline');
 		}
-		
 	}, 1000);
+};
+detectarEstadoRed();
 
-}
-detectarEstadoRed()
+// TODO: Detectar la Camara Web (Webcam)
+
+const detectarCamara = () => {
+	if (navigator.mediaDevices.getUserMedia) {
+		navigator.mediaDevices
+			.getUserMedia({ video: true, audio: true })
+			.then(stream => {
+				$webcam.srcObject = stream;
+				$webcam.play();
+			})
+			.catch(
+				err => (
+					$webcam.insertAdjacentHTML('beforebegin', `<p><mark>${err}</mark></p>`),
+					console.error(`Ha ocurrido un error! {${err}}`)
+				),
+			);
+	}
+};
+
+detectarCamara();
+
+
+
