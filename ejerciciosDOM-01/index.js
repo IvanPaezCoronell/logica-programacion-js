@@ -39,6 +39,9 @@ const $inputUrl = document.querySelector('#inputUrl').value;
 // Variables Deteccion del dispositivo actual
 const $userDevice = document.querySelector('#userDevice');
 
+// Variables Deteccion del estado de la red
+const $estadoRed = document.querySelector('#estadoRed')
+
 // TODO: Menu Hamburguesa
 $menuBurger.addEventListener('click', e => {
 	console.log('Click en menu burger');
@@ -343,3 +346,22 @@ const detectarDispositivo = () => {
 	</ul>`;
 };
 detectarDispositivo();
+
+
+// TODO: Detectar el estado de la conexion (Red)
+
+const detectarEstadoRed = () => {
+	setInterval(() => {
+		$estadoRed.innerHTML = `${navigator.onLine ? 'Online' : 'Offline'}`
+
+		if(navigator.onLine){
+			$estadoRed.classList.add('online')
+			$estadoRed.classList.remove('offline')
+		} else {
+			$estadoRed.classList.add('offline')
+		}
+		
+	}, 1000);
+
+}
+detectarEstadoRed()

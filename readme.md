@@ -190,3 +190,7 @@ La clase recibirá un objeto al momento de instanciarse con los siguentes datos:
 ---
 
 
+10) Detectar el Estado de la Conexion (Red).
+---
+
+
