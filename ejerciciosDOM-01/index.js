@@ -49,6 +49,9 @@ const $webcam = document.querySelector('#webcam');
 const $geo = document.querySelector('#geolocalizacion');
 const $linkMapGeo = document.querySelector('#linkMapGeo');
 
+// Variables Puntuacion con estrellas
+const $rating = document.querySelector('#rating');
+
 // TODO: Menu Hamburguesa
 $menuBurger.addEventListener('click', e => {
 	console.log('Click en menu burger');
@@ -407,3 +410,15 @@ const obtenerGeolocalizacion = () => {
 };
 
 obtenerGeolocalizacion();
+
+
+// TODO: Puntuacion con estrellas (⭐⭐☆☆☆)
+
+const crearRating = ({ rating, total = 5, star = '⭐', emptyStar = '☆' }) => {
+	const stars = star.repeat(rating);
+	const empty = emptyStar.repeat(total - rating);
+
+	$rating.innerHTML = stars + empty;
+};
+
+crearRating({ rating: 2 });
