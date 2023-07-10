@@ -230,3 +230,12 @@ form input {
 .offline {
 	background-color: #b71c1c;
 }
+
+
+.aMaps {
+	color: rgb(255, 145, 0);
+}
+
+.aMaps:hover {
+	color: rgb(39, 89, 255);
+}

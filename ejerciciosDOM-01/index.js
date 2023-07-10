@@ -45,6 +45,10 @@ const $estadoRed = document.querySelector('#estadoRed');
 // Variables Deteccion de la webcam
 const $webcam = document.querySelector('#webcam');
 
+// Variables Deteccion de la Geolocalizacion
+const $geo = document.querySelector('#geolocalizacion');
+const $linkMapGeo = document.querySelector('#linkMapGeo');
+
 // TODO: Menu Hamburguesa
 $menuBurger.addEventListener('click', e => {
 	console.log('Click en menu burger');
@@ -378,7 +382,10 @@ const detectarCamara = () => {
 			})
 			.catch(
 				err => (
-					$webcam.insertAdjacentHTML('beforebegin', `<p><mark>${err}</mark></p>`),
+					$webcam.insertAdjacentHTML(
+						'beforebegin',
+						`<p><mark>${err}</mark></p>`,
+					),
 					console.error(`Ha ocurrido un error! {${err}}`)
 				),
 			);
@@ -387,5 +394,16 @@ const detectarCamara = () => {
 
 detectarCamara();
 
+// TODO: Detectar la Geolocalizacion
 
+const obtenerGeolocalizacion = () => {
+	navigator.geolocation.getCurrentPosition(position => {
+		const latitud = position.coords.latitude;
+		const longitud = position.coords.longitude;
+		$geo.innerHTML = `<h4>Posicion Actual ⬇️</h4><h5>Latitud: <mark>${latitud}</mark> </h5>  <h5>Longitud: <mark>${longitud}</mark> </h5> `;
 
+		$linkMapGeo.innerHTML = `<a href='https://www.google.com/maps/@${latitud},${longitud}' class='aMaps' target='_blank'>Visitar en Google Maps</a>`;
+	});
+};
+
+obtenerGeolocalizacion();
