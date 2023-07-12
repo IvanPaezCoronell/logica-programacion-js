@@ -55,7 +55,21 @@ const $rating = document.querySelector('#rating');
 // Variables Filtros de Busquedas
 const $cardFilter = document.querySelector('.cardFilter');
 
-
+// Variables Sorteo Digital
+const $divLista = document.querySelector('#listaSorteo');
+const $ulSorteo = document.createElement('ul');
+const $btnSorteo = document.querySelector('#btnSorteo');
+const usuarios = [
+	'Ivan',
+	'Ana',
+	'Juan',
+	'Camila',
+	'Sebastian',
+	'Andrea',
+	'David',
+	'Luis',
+	'Sofia',
+];
 
 // TODO: Menu Hamburguesa
 $menuBurger.addEventListener('click', e => {
@@ -429,8 +443,6 @@ crearRating({ rating: 2 });
 
 // TODO: Filtros de Busqueda
 
-
-
 const filtros = () => {
 	document.addEventListener('keyup', e => {
 		if (e.target === $cardFilter) {
@@ -453,3 +465,21 @@ const filtros = () => {
 };
 
 filtros();
+
+// TODO: Sorteo Digital
+
+const sorteoDigital = () => {
+	usuarios.map(el => {
+		const $li = document.createElement('li');
+		$li.textContent = el;
+		$divLista.appendChild($li);
+	});
+
+	$btnSorteo.addEventListener('click', e => {
+		const ganador = usuarios[Math.floor(Math.random() * usuarios.length)];
+
+		alert(`El ganador es: [ ${ganador} ]`);
+	});
+};
+
+sorteoDigital();
