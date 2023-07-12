@@ -52,6 +52,11 @@ const $linkMapGeo = document.querySelector('#linkMapGeo');
 // Variables Puntuacion con estrellas
 const $rating = document.querySelector('#rating');
 
+// Variables Filtros de Busquedas
+const $cardFilter = document.querySelector('.cardFilter');
+
+
+
 // TODO: Menu Hamburguesa
 $menuBurger.addEventListener('click', e => {
 	console.log('Click en menu burger');
@@ -411,7 +416,6 @@ const obtenerGeolocalizacion = () => {
 
 obtenerGeolocalizacion();
 
-
 // TODO: Puntuacion con estrellas (⭐⭐☆☆☆)
 
 const crearRating = ({ rating, total = 5, star = '⭐', emptyStar = '☆' }) => {
@@ -422,3 +426,30 @@ const crearRating = ({ rating, total = 5, star = '⭐', emptyStar = '☆' }) => 
 };
 
 crearRating({ rating: 2 });
+
+// TODO: Filtros de Busqueda
+
+
+
+const filtros = () => {
+	document.addEventListener('keyup', e => {
+		if (e.target === $cardFilter) {
+			console.log(e.key);
+
+			if (e.key === 'Escape') {
+				e.target.value = '';
+			}
+
+			document
+				.querySelectorAll('.card')
+				.forEach(
+					el =>
+						el.textContent.toLocaleLowerCase().includes(e.target.value)
+							? el.classList.remove('filter')
+							: el.classList.add('filter'),
+				);
+		}
+	});
+};
+
+filtros();

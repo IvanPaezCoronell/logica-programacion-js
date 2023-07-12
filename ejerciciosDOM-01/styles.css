@@ -239,3 +239,32 @@ form input {
 .aMaps:hover {
 	color: rgb(39, 89, 255);
 }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+  background-color: rgb(255, 255, 255);
+  color: black;
+	border: 1px solid #c3c3c3;
+  transition: all 0.3s ease-out;
+	border-radius: 10%;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.card img {
+	border-radius: 10% 10% 0 0;
+}
+
+.card figcaption {
+  padding: 1rem;
+}
+
+.filter {
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
+  order: 1;
+}
