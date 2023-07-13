@@ -71,6 +71,11 @@ const usuarios = [
 	'Sofia',
 ];
 
+// Variables Responsive Slider
+const $btnLeft = document.querySelector('#btnLeft');
+const $btnRight = document.querySelector('#btnRight');
+const $cardSlider = document.querySelectorAll('#slide');
+
 // TODO: Menu Hamburguesa
 $menuBurger.addEventListener('click', e => {
 	console.log('Click en menu burger');
@@ -483,3 +488,39 @@ const sorteoDigital = () => {
 };
 
 sorteoDigital();
+
+// TODO: Responsive Slider
+
+const slider = () => {
+	let i = 0;
+
+	$btnLeft.addEventListener('click', e => {
+		if (e.target === $btnLeft) {
+			e.preventDefault();
+			$cardSlider[i].classList.remove('active');
+			i--;
+
+			if (i < 0) {
+				i = $cardSlider.length - 1;
+			}
+
+			$cardSlider[i].classList.add('active');
+		}
+	});
+
+	$btnRight.addEventListener('click', e => {
+		if (e.target === $btnRight) {
+			e.preventDefault();
+			$cardSlider[i].classList.remove('active');
+			i++;
+
+			if (i >= $cardSlider.length) {
+				i = 0;
+			}
+
+			$cardSlider[i].classList.add('active');
+		}
+	});
+};
+
+slider();

@@ -75,7 +75,6 @@ video {
 	height: 100vh;
 	overflow: auto;
 	transition: transform 0.3s ease, opacity 0.5s ease;
-	
 }
 
 ::-webkit-scrollbar {
@@ -231,7 +230,6 @@ form input {
 	background-color: #b71c1c;
 }
 
-
 .aMaps {
 	color: rgb(255, 145, 0);
 }
@@ -241,15 +239,15 @@ form input {
 }
 
 .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .card {
-  background-color: rgb(255, 255, 255);
-  color: black;
+	background-color: rgb(255, 255, 255);
+	color: black;
 	border: 1px solid #c3c3c3;
-  transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
 	border-radius: 10%;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -259,12 +257,76 @@ form input {
 }
 
 .card figcaption {
-  padding: 1rem;
+	padding: 1rem;
 }
 
 .filter {
-  /* display: none; */
-  visibility: hidden;
-  opacity: 0;
-  order: 1;
+	/* display: none; */
+	visibility: hidden;
+	opacity: 0;
+	order: 1;
 }
+
+#slider{
+	position: relative;
+  width: 80%;
+  margin: 1rem auto;
+  /* border: thin solid black; */
+  text-align: center;
+}
+
+.cardsSlider {
+	position: relative;
+  height: 400px;
+}
+
+.cardSlider {
+	position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease;
+}
+
+.cardSlider.active {
+	opacity: 1;
+  visibility: visible;
+}
+
+.cardSlider img {
+	height: inherit;
+  width: inherit;
+  object-fit: cover;
+  object-position: 50% 0%;
+	border-radius: 5%;
+}
+
+
+.btnsSlider {
+	position: absolute;
+  width: 100%;
+  top: calc(50% - 2rem);
+  display: flex;
+  justify-content: space-between;
+  font-size: 3rem;
+  font-weight: bold;
+
+	
+}
+
+
+.slider a {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: thin solid #000;
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
