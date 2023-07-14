@@ -330,3 +330,6 @@ form input {
   transition: all 0.3s ease;
 }
 
+video {
+	border-radius: 2%;
+}

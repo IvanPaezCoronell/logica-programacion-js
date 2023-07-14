@@ -218,3 +218,7 @@ La clase recibirá un objeto al momento de instanciarse con los siguentes datos:
 ---
 
 
+17) Video Inteligente (IntersectionObserver).
+---
+
+

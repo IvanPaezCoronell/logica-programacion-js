@@ -76,6 +76,9 @@ const $btnLeft = document.querySelector('#btnLeft');
 const $btnRight = document.querySelector('#btnRight');
 const $cardSlider = document.querySelectorAll('#slide');
 
+// Variables Video Inteligente
+const $videoBarca = document.querySelectorAll('video[data-smart-video]');
+
 // TODO: Menu Hamburguesa
 $menuBurger.addEventListener('click', e => {
 	console.log('Click en menu burger');
@@ -524,3 +527,24 @@ const slider = () => {
 };
 
 slider();
+
+// TODO: Video inteligente (IntersectionObserver)
+
+const videoInteligente = () => {
+	const cb = entries => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				entry.target.play();
+			} else {
+				entry.target.pause();
+			}
+		});
+	};
+
+	const observer = new IntersectionObserver(cb, { threshold: 0.5 });
+
+	$videoBarca.forEach(el => observer.observe(el));
+
+};
+
+videoInteligente();
