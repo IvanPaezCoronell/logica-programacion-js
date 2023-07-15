@@ -402,27 +402,27 @@ detectarEstadoRed();
 
 // TODO: Detectar la Camara Web (Webcam)
 
-const detectarCamara = () => {
-	if (navigator.mediaDevices.getUserMedia) {
-		navigator.mediaDevices
-			.getUserMedia({ video: true, audio: true })
-			.then(stream => {
-				$webcam.srcObject = stream;
-				$webcam.play();
-			})
-			.catch(
-				err => (
-					$webcam.insertAdjacentHTML(
-						'beforebegin',
-						`<p><mark>${err}</mark></p>`,
-					),
-					console.error(`Ha ocurrido un error! {${err}}`)
-				),
-			);
-	}
-};
+// const detectarCamara = () => {
+// 	if (navigator.mediaDevices.getUserMedia) {
+// 		navigator.mediaDevices
+// 			.getUserMedia({ video: true, audio: true })
+// 			.then(stream => {
+// 				$webcam.srcObject = stream;
+// 				$webcam.play();
+// 			})
+// 			.catch(
+// 				err => (
+// 					$webcam.insertAdjacentHTML(
+// 						'beforebegin',
+// 						`<p><mark>${err}</mark></p>`,
+// 					),
+// 					console.error(`Ha ocurrido un error! {${err}}`)
+// 				),
+// 			);
+// 	}
+// };
 
-detectarCamara();
+// detectarCamara();
 
 // TODO: Detectar la Geolocalizacion
 
@@ -544,7 +544,125 @@ const videoInteligente = () => {
 	const observer = new IntersectionObserver(cb, { threshold: 0.5 });
 
 	$videoBarca.forEach(el => observer.observe(el));
-
 };
 
 videoInteligente();
+
+// TODO: Validaciones de Formularios
+
+const $formValidation = document.querySelector('#formValidation');
+const $inputName = document.querySelector('#inputName');
+const $inputEmail = document.querySelector('#inputEmail');
+const $inputAsunto = document.querySelector('#inputAsunto');
+const $areaCometarios = document.querySelector('#comentarios');
+
+// errores
+const $nameError = document.querySelector('#nameError');
+const $emailError = document.querySelector('#emailError');
+const $asuntolError = document.querySelector('#asuntoError');
+const $comentarioslError = document.querySelector('#comentariosError');
+
+// const formValidation = () => {
+// 	const validation = $formValidation.addEventListener('submit', e => {
+// 		// Obtener datos desde submit
+// 		e.preventDefault();
+
+// 		const data = Object.fromEntries(new FormData(e.target)); // Obtener datos
+
+// 		let expRegNombre = /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'°\s]+$/g.test(data.name); // Expresionn Regular para validar nombre
+
+// 		let expRegEmail = /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/gi.test(data.email); // Expresionn Regular para validar email
+
+// 		if (expRegNombre === false) { // Validar nombre
+// 			$nameError.innerHTML = '<h1 class="errorForm">Nombre Invalido!</h1>';
+// 			$inputName.classList.add('err');
+// 		} else {
+// 			$inputName.classList.remove('err');
+// 			$inputName.classList.add('check');
+// 			$nameError.remove();
+// 		}
+
+// 		if(expRegEmail === false) { // Validar email
+// 			$emailError.innerHTML = '<h1 class="errorForm">Email Invalido!</h1>';
+// 			$inputEmail.classList.add('err');
+// 		} else {
+// 			$inputEmail.classList.remove('err');
+// 			$inputEmail.classList.add('check');
+// 			$emailError.remove();
+// 		}
+
+// 		$inputAsunto.classList.add('check')
+
+// 		if(data.comentarios.length > 20){
+// 			console.log('limite')
+// 			$comentarioslError.innerHTML = '<h1 class="errorForm">Debe tener menos de 20 caracteres!</h1>';
+// 			$areaCometarios.classList.add('err');
+// 		} else {
+// 			$areaCometarios.classList.remove('err');
+// 			$areaCometarios.classList.add('check');
+// 			$comentarioslError.remove();
+// 		}
+
+// 		console.log(JSON.stringify(data)); // Mostrar datos en consola como JSON
+// 	});
+
+// };
+
+const validaciones = () => {
+	const $form = document.querySelector('.contact-form');
+	const $inputs = document.querySelectorAll('.contact-form [required]');
+
+	// Crea el elemento Span
+	$inputs.forEach(input => {
+		const $span = document.createElement('span');
+		$span.id = input.name;
+		$span.textContent = input.title;
+		$span.classList.add('contact-form-error', 'none');
+		input.insertAdjacentElement('afterend', $span);
+	});
+
+	document.addEventListener('keyup', e => {
+		if (e.target.matches('.contact-form [required]')) {
+			let $input = e.target;
+			let pattern = $input.pattern || $input.dataset.pattern; // Traer el atributo pattern del textArea
+
+			if (pattern && $input.value !== '') {
+				console.log('patron');
+				let regEx = new RegExp(pattern);
+				return !regEx.exec($input.value)
+					? document.getElementById($input.name).classList.add('is-active')
+					: document.getElementById($input.name).classList.remove('is-active');
+			}
+
+			if (!pattern) {
+				console.log('no patron');
+				return $input.value === ''
+					? document.getElementById($input.name).classList.add('is-active')
+					: document.getElementById($input.name).classList.remove('is-active');
+			}
+		}
+	});
+
+	document.addEventListener('submit', e => {
+		const data = Object.fromEntries(new FormData(e.target));
+
+		const $loader = document.querySelector('.contact-form-loader');
+		const $response = document.querySelector('.contact-form-response');
+
+		$loader.classList.remove('none');
+
+		setTimeout(() => {
+			$loader.classList.add('none');
+			$response.classList.remove('none');
+			$form.reset();
+
+			setTimeout(() => {
+				$response.classList.add('none');
+			}, 3000);
+		}, 3000);
+
+		console.log(JSON.stringify(data));
+	});
+};
+
+validaciones();

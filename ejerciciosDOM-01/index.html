@@ -231,7 +231,7 @@
           <img src="https://picsum.photos/800/400?random=2">
         </div>
 
-        <div class='cardSlider' id='slide'> 
+        <div class='cardSlider' id='slide'>
           <img src="https://picsum.photos/800/400?random=3">
         </div>
 
@@ -248,7 +248,7 @@
           <img src="https://picsum.photos/800/400?random=6">
         </div>
 
-       
+
 
       </div>
 
@@ -280,8 +280,55 @@
   <section class="section">
     <div class='title-section' id='section-15'>
       <h3>Seccion 15</h3>
-      <h3></h3>
+      <h3>Validaciones de Formularios</h3>
     </div>
+
+
+    <form id='formValidation' class='contact-form' action="https://formsubmit.co/ipaezcoronell@outlook.com" method="POST" target='_blank'>
+
+
+      <div class='flexDirection'>
+        <input id='inputName' class='' name='name' type="text" placeholder='nombre'
+          title='nombre invalido! Digitar solo letras y/o espacios en blanco.' pattern="^[A-ZÑa-zñáéíóúÁÉÍÓÚ'°\s]+$"
+          required>
+       
+      </div>
+
+      <div class='flexDirection'>
+        <input id='inputEmail' class='' name='email' type="email" placeholder='email'
+          title='Email invalido! Porfavor digitar un email valido. examplo@example.com'
+          pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required>
+        <span id='emailError'></span>
+      </div>
+
+
+      <div class='flexDirection'>
+        <input id='inputAsunto' class='' name='asunto' type="text" placeholder='asunto' title='El asunto es requerido.'
+          required>
+      
+      </div>
+
+
+      <div class='flexDirection'>
+        <textarea name="comentarios" class='' id="comentarios" maxlength='255' cols="30" rows="10" placeholder='Comentarios...'
+          title='Debe tener menos de 255 caracteres.' data-pattern="^.{1,255}$" required></textarea>
+      
+      </div>
+
+
+      <input type="submit" name="" '>
+
+
+      <div class="contact-form-loader none">
+        <img src="./assets/loader.svg" alt="">
+      </div>
+
+      <div class="contact-form-response none">
+        <p>Los datos han sido enviado!</p>
+      </div>
+
+    </form>
+
 
 
   </section>
@@ -353,7 +400,7 @@
       <a href="#section-14">Video</a>
     </div>
     <div>
-      <a href="#section-15">15</a>
+      <a href="#section-15">Formularios</a>
     </div>
     <div>
       <a href="#section-16">16</a>
