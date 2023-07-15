@@ -1,4 +1,6 @@
-``` Ejercicios de logica de programacion - JavaScript ```
+!!! 🔰 SECTION 01 - EJERCICIOS DE LOGICA DE PROGRAMACION !!!
+---
+> ``` Ejercicios de logica de programacion - JavaScript ```
 
 
 1) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
@@ -149,10 +151,14 @@ La clase recibirá un objeto al momento de instanciarse con los siguentes datos:
     de cada película.
 
 * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
+---
 
 
+!!! 🔰 SECTION 02 - EJERCICIOS MANEJO DEL DOM !!!
+---
 
-``` Ejercicios Practicos manejo del DOM - JavaScript ```
+
+> ``` Ejercicios Practicos manejo del DOM - JavaScript ```
 
 1) Menu Hamburguesa.
 ---
@@ -236,8 +242,10 @@ La clase recibirá un objeto al momento de instanciarse con los siguentes datos:
 
 
 
+!!! 🔰 SECTION 03 - PROYECTOS BASICOS !!!
+---
 
-``` Proyectos Basicos - JavaScript ```
+> ``` Proyectos Basicos - JavaScript ```
 
 1) Calculadora.
 ---
