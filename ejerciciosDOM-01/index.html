@@ -284,14 +284,15 @@
     </div>
 
 
-    <form id='formValidation' class='contact-form' action="https://formsubmit.co/ipaezcoronell@outlook.com" method="POST" target='_blank'>
+    <form id='formValidation' class='contact-form' action="https://formsubmit.co/ipaezcoronell@outlook.com"
+      method="POST" target='_blank'>
 
 
       <div class='flexDirection'>
         <input id='inputName' class='' name='name' type="text" placeholder='nombre'
           title='nombre invalido! Digitar solo letras y/o espacios en blanco.' pattern="^[A-ZÑa-zñáéíóúÁÉÍÓÚ'°\s]+$"
           required>
-       
+
       </div>
 
       <div class='flexDirection'>
@@ -305,14 +306,15 @@
       <div class='flexDirection'>
         <input id='inputAsunto' class='' name='asunto' type="text" placeholder='asunto' title='El asunto es requerido.'
           required>
-      
+
       </div>
 
 
       <div class='flexDirection'>
-        <textarea name="comentarios" class='' id="comentarios" maxlength='255' cols="30" rows="10" placeholder='Comentarios...'
-          title='Debe tener menos de 255 caracteres.' data-pattern="^.{1,255}$" required></textarea>
-      
+        <textarea name="comentarios" class='' id="comentarios" maxlength='255' cols="30" rows="10"
+          placeholder='Comentarios...' title='Debe tener menos de 255 caracteres.' data-pattern="^.{1,255}$"
+          required></textarea>
+
       </div>
 
 
@@ -335,20 +337,18 @@
 
 
   <section class="section">
-    <div class='title-section' id='section-16'>
+    <div class=' title-section' id='section-16'>
       <h3>Seccion 16</h3>
-      <h3></h3>
-    </div>
+      <h3>Narrador (Lector de Voz)</h3>
+      </div>
 
-
-  </section>
-
-
-  <section class="section">
-    <div class='title-section' id='section-17'>
-      <h3>Seccion 17</h3>
-      <h3></h3>
-    </div>
+      <select id="speech-select">
+        <option value=""> Seleccionar Voz</option>
+      </select>
+      <br><br>
+      <textarea id="speech-text" placeholder="Ingresar texto..." cols="50" rows="5"></textarea>
+      <br><br>
+      <button id="speech-btn">Leer Texto</button>
 
 
   </section>
@@ -403,10 +403,7 @@
       <a href="#section-15">Formularios</a>
     </div>
     <div>
-      <a href="#section-16">16</a>
-    </div>
-    <div>
-      <a href="#section-17">17</a>
+      <a href="#section-16">Narrador</a>
     </div>
   </aside>
 

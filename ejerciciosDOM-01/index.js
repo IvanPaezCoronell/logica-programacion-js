@@ -79,6 +79,11 @@ const $cardSlider = document.querySelectorAll('#slide');
 // Variables Video Inteligente
 const $videoBarca = document.querySelectorAll('video[data-smart-video]');
 
+// Variables Lector de voz
+const $speechSelect = document.querySelector('#speech-select');
+const $speechTextArea = document.querySelector('#speech-text');
+const $speechBtn = document.querySelector('#speech-btn');
+
 // TODO: Menu Hamburguesa
 $menuBurger.addEventListener('click', e => {
 	console.log('Click en menu burger');
@@ -551,62 +556,6 @@ videoInteligente();
 // TODO: Validaciones de Formularios
 
 const $formValidation = document.querySelector('#formValidation');
-const $inputName = document.querySelector('#inputName');
-const $inputEmail = document.querySelector('#inputEmail');
-const $inputAsunto = document.querySelector('#inputAsunto');
-const $areaCometarios = document.querySelector('#comentarios');
-
-// errores
-const $nameError = document.querySelector('#nameError');
-const $emailError = document.querySelector('#emailError');
-const $asuntolError = document.querySelector('#asuntoError');
-const $comentarioslError = document.querySelector('#comentariosError');
-
-// const formValidation = () => {
-// 	const validation = $formValidation.addEventListener('submit', e => {
-// 		// Obtener datos desde submit
-// 		e.preventDefault();
-
-// 		const data = Object.fromEntries(new FormData(e.target)); // Obtener datos
-
-// 		let expRegNombre = /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'°\s]+$/g.test(data.name); // Expresionn Regular para validar nombre
-
-// 		let expRegEmail = /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/gi.test(data.email); // Expresionn Regular para validar email
-
-// 		if (expRegNombre === false) { // Validar nombre
-// 			$nameError.innerHTML = '<h1 class="errorForm">Nombre Invalido!</h1>';
-// 			$inputName.classList.add('err');
-// 		} else {
-// 			$inputName.classList.remove('err');
-// 			$inputName.classList.add('check');
-// 			$nameError.remove();
-// 		}
-
-// 		if(expRegEmail === false) { // Validar email
-// 			$emailError.innerHTML = '<h1 class="errorForm">Email Invalido!</h1>';
-// 			$inputEmail.classList.add('err');
-// 		} else {
-// 			$inputEmail.classList.remove('err');
-// 			$inputEmail.classList.add('check');
-// 			$emailError.remove();
-// 		}
-
-// 		$inputAsunto.classList.add('check')
-
-// 		if(data.comentarios.length > 20){
-// 			console.log('limite')
-// 			$comentarioslError.innerHTML = '<h1 class="errorForm">Debe tener menos de 20 caracteres!</h1>';
-// 			$areaCometarios.classList.add('err');
-// 		} else {
-// 			$areaCometarios.classList.remove('err');
-// 			$areaCometarios.classList.add('check');
-// 			$comentarioslError.remove();
-// 		}
-
-// 		console.log(JSON.stringify(data)); // Mostrar datos en consola como JSON
-// 	});
-
-// };
 
 const validaciones = () => {
 	const $form = document.querySelector('.contact-form');
@@ -666,3 +615,40 @@ const validaciones = () => {
 };
 
 validaciones();
+
+// TODO: Narrador (Lector de Voz)
+
+const leerTexto = () => {
+	const speechMessage = new SpeechSynthesisUtterance();
+
+	let voices = [];
+
+	document.addEventListener('DOMContentLoaded', e => {
+		window.speechSynthesis.addEventListener('voiceschanged', e => {
+			voices = window.speechSynthesis.getVoices();
+
+			voices.map(voice => {
+				const $option = document.createElement('option');
+				$option.value = voice.name;
+				$option.text = voice.name;
+
+				$speechSelect.appendChild($option);
+			});
+		});
+	});
+
+	document.addEventListener('change', e => {
+		if (e.target === $speechSelect) {
+			speechMessage.voice = voices.find(voice => voice.name === e.target.value);
+		}
+	});
+
+	document.addEventListener('click', e => {
+		if (e.target === $speechBtn) {
+			speechMessage.text = $speechTextArea.value;
+			window.speechSynthesis.speak(speechMessage);
+		}
+	});
+};
+
+leerTexto();
