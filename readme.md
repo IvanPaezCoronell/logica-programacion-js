@@ -244,3 +244,7 @@ La clase recibirá un objeto al momento de instanciarse con los siguentes datos:
 
 
 
+2) Paginacion (Api de pokemon) 
+---
+
+
